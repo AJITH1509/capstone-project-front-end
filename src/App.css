@@ -1,0 +1,26 @@
+body{
+    margin: 0px;
+}
+
+#website-name{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  #website-name span{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orange;
+  }
+  #website-name small{
+    color: yellow;
+  }
+
+.color-div{
+  margin: 10px 10px 10px 10px;
+}
+
+  #radio-btn{
+    margin: 40px auto;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+     
+  }

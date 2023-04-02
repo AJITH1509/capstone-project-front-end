@@ -12,7 +12,7 @@ import Fade from "@mui/material/Fade";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Dashbaord() {
   const navigate = useNavigate();
@@ -43,7 +43,12 @@ export function Dashbaord() {
               Daily<span>Color</span>
               <small>.in</small>
             </Typography>
-
+            <h3
+              onClick={() => navigate("/more-colors")}
+              className="nav-more-colors"
+            >
+              More colors
+            </h3>
             <Button
               id="fade-button"
               aria-controls={open ? "fade-menu" : undefined}
@@ -70,7 +75,7 @@ export function Dashbaord() {
               onClose={handleClose}
               TransitionComponent={Fade}
             >
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={() => navigate("/profile")}>
                 <IconButton>
                   <AccountCircleIcon />
                 </IconButton>

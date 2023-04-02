@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API } from "../global.js";
 
 export const Profile = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -30,9 +31,9 @@ export const Profile = () => {
   };
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form>
         <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload Image</button>
+        <button onClick={handleFormSubmit}>Upload Image</button>
       </form>
     </div>
   );

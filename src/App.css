@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    background-color:#F9F9F9 ;
 }
 
 #website-name{
@@ -27,13 +28,42 @@ body{
     justify-content: center;
      
   }
+
+  .nav-more-colors{
+    padding-right: 10px;
+      cursor: pointer;
+  }
+  .nav-more-colors:hover{
+    color: pink;
+    text-decoration: underline;
+  }
+
 .daily-color{
-  text-align: center;
+  margin: 10px 10px 10px 10px;
   width:200px;
   height: 200px;
+  border-radius: 5px;
+}
+.color-list{
+  margin: 10px 10px 10px 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
+  gap:10px
+}
+.color-title-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
   @media screen and (max-width: 500px) {
     #radio-btn{
       width: 300px;
+    }
+    .nav-more-colors{
+      text-align: center;
+      transform: scale(70%);
+      padding-right: 0px;
+        cursor: pointer;
     }
   }

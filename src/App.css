@@ -14,13 +14,26 @@ body{
   }
 
 .color-div{
+  display: flex;
   margin: 10px 10px 10px 10px;
+  align-items: center;
+  flex-direction: column;
 }
 
   #radio-btn{
-    margin: 40px auto;
-    max-width: 600px;
+    margin: 10px auto;
+    width: 500px;
     display: flex;
     justify-content: center;
      
+  }
+.daily-color{
+  text-align: center;
+  width:200px;
+  height: 200px;
+}
+  @media screen and (max-width: 500px) {
+    #radio-btn{
+      width: 300px;
+    }
   }

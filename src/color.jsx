@@ -13,22 +13,22 @@ import { API } from "../global";
 export const Color = () => {
   const [mood, setMood] = useState("");
   const [tone, setTone] = useState("");
+  const [data, setData] = useState("");
 
   const getColor = () => {
     fetch(`${API}/${mood}/${tone}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        const max = data.colors.length;
+        const num = Math.floor(Math.random() * max);
+        setData(data.colors[num]);
       });
   };
 
   useEffect(() => {
     getColor();
   }, []);
-
-  console.log(mood);
-  console.log(tone);
-
+  console.log(data);
   const handleChange = (event) => {
     setMood(event.target.value);
   };
@@ -91,6 +91,15 @@ export const Color = () => {
       <Button onClick={getColor} variant="contained">
         Get dress color
       </Button>
+      {data ? (
+        <Card>
+          <div
+            className="daily-color"
+            style={{ backgroundColor: `${data.hex}` }}
+          ></div>
+          <p>{data.name}</p>
+        </Card>
+      ) : null}
     </div>
   );
 };

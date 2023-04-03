@@ -21,7 +21,11 @@ export const Color = () => {
   const [quote, setquote] = useState("");
 
   const getColor = () => {
-    fetch(`${API}/${mood}/${tone}`)
+    fetch(`${API}/${mood}/${tone}`, {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         const max = data.colors.length;
@@ -55,7 +59,7 @@ export const Color = () => {
         <Card id="radio-btn">
           <FormControl>
             <FormLabel id="demo-row-radio-buttons-group-label">
-              <span>Select Mood</span>
+              <h4>Select Mood</h4>
             </FormLabel>
             <RadioGroup
               row
@@ -80,10 +84,10 @@ export const Color = () => {
         <Card id="radio-btn">
           <FormControl>
             <FormLabel id="demo-row-radio-buttons-group-label">
-              <span> Select Color tone</span>
+              <h4>Select Tone</h4>
             </FormLabel>
             <RadioGroup
-              row
+              id="radio-group"
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
             >
@@ -115,17 +119,23 @@ export const Color = () => {
         <div>
           {data ? (
             <div>
-              <h3 style={{ textAlign: "center", margin: "2px 2px 10px 2px" }}>
-                Today color suggestion
+              <h3
+                className="today-suggestion-heading"
+                style={{ textAlign: "center", margin: "2px 2px 10px 2px" }}
+              >
+                Color Suggestion for you !
               </h3>
-              <Card>
+              <Card id="color-card">
                 <div
                   className="daily-color"
                   style={{ backgroundColor: `${data.hex}` }}
                 ></div>
                 <div className="color-title-div">
-                  <p style={{ textAlign: "center" }}>{data.name}</p>
+                  <p style={{ textAlign: "center", margin: "5px" }}>
+                    {data.name}
+                  </p>
                   <FavoriteIcon
+                    style={{ cursor: "pointer" }}
                     onClick={() => setLike(!like)}
                     color={like ? "error" : "grey"}
                   />
@@ -138,10 +148,10 @@ export const Color = () => {
         {data ? (
           <Card>
             <CardContent>
-              <p style={{ margin: "0px" }}>{quote.text}</p>
-              <small style={{ textAlign: "center", margin: "2px" }}>
-                - {quote.author}
-              </small>
+              <q style={{ margin: "0px" }}> {quote.text} </q>
+              <p style={{ textAlign: "right", margin: "2px" }}>
+                <small>- {quote.author}</small>
+              </p>
             </CardContent>
           </Card>
         ) : null}

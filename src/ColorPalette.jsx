@@ -8,7 +8,11 @@ export const ColorPalette = () => {
   const [color, setColor] = useState([]);
 
   useEffect(() => {
-    fetch(`${API}/colors`)
+    fetch(`${API}/colors`, {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    })
       .then((response) => response.json())
       .then((data) => setColor(data));
   }, []);
@@ -16,7 +20,7 @@ export const ColorPalette = () => {
     <div>
       <Dashbaord />
       <div className="color-list">
-        {color.map((colors) => (
+        {color?.map((colors) => (
           <Colors key={colors._id} colors={colors} />
         ))}
       </div>
@@ -27,14 +31,15 @@ export const ColorPalette = () => {
 const Colors = ({ colors }) => {
   const [like, setLike] = useState(false);
   return (
-    <Card>
+    <Card id="main-color-palette">
       <div
-        className="daily-color"
+        className="daily-color-palette"
         style={{ backgroundColor: `${colors.hex}` }}
       ></div>
       <div className="color-title-div">
         <p style={{ textAlign: "center" }}>{colors.name}</p>
         <FavoriteIcon
+          style={{ cursor: "pointer" }}
           onClick={(e) => setLike(!like)}
           color={like ? "error" : "grey"}
         />

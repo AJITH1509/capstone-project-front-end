@@ -123,7 +123,7 @@ export const Color = () => {
                 className="today-suggestion-heading"
                 style={{ textAlign: "center", margin: "2px 2px 10px 2px" }}
               >
-                Color Suggestion for you !
+                Today Color Suggestion for you !
               </h3>
               <Card id="color-card">
                 <div

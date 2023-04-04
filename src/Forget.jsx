@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { API } from "../global.js";
+import { LoginDashboard } from "./loginDashboard.jsx";
 
 const formValidationSchema = yup.object({
   email: yup.string().email().required("Email address is required"),
@@ -34,26 +35,29 @@ export const ForgetPass = () => {
       },
     });
   return (
-    <form onSubmit={handleSubmit}>
-      <Card className="login-container">
-        <h4>Trouble with logging in ?</h4>
-        <p>Enter your email address and we will send OTP</p>
-        <CardContent className="card-content">
-          <TextField
-            name="email"
-            value={values.email}
-            onChange={handleChange}
-            label="Enter Your Email Address"
-            variant="outlined"
-            onBlur={handleBlur}
-            error={touched.email && errors.email}
-            helperText={touched.email && errors.email ? errors.email : null}
-          />
-          <Button color="secondary" type="submit" variant="contained">
-            Send OTP
-          </Button>
-        </CardContent>
-      </Card>
-    </form>
+    <div>
+      <LoginDashboard />
+      <form onSubmit={handleSubmit}>
+        <Card className="login-container">
+          <h4>Trouble with logging in ?</h4>
+          <p>Enter your email address and we will send OTP</p>
+          <CardContent className="card-content">
+            <TextField
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              label="Enter Your Email Address"
+              variant="outlined"
+              onBlur={handleBlur}
+              error={touched.email && errors.email}
+              helperText={touched.email && errors.email ? errors.email : null}
+            />
+            <Button color="secondary" type="submit" variant="contained">
+              Send OTP
+            </Button>
+          </CardContent>
+        </Card>
+      </form>
+    </div>
   );
 };

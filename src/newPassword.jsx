@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { API } from "../global.js";
+import { LoginDashboard } from "./loginDashboard.jsx";
 
 const formValidationSchema = yup.object({
   email: yup.string().email().required("Email address is required"),
@@ -36,37 +37,40 @@ export const NewPassword = () => {
       },
     });
   return (
-    <form onSubmit={handleSubmit}>
-      <Card className="login-container">
-        <h4>Reset your Password</h4>
-        <CardContent className="card-content">
-          <TextField
-            name="email"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            label="Email"
-            variant="outlined"
-            error={touched.email && errors.email}
-            helperText={touched.email && errors.email ? errors.email : null}
-          />
-          <TextField
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            label="Enter New password"
-            variant="outlined"
-            error={touched.password && errors.password}
-            helperText={
-              touched.password && errors.password ? errors.password : null
-            }
-          />
-          <Button color="secondary" type="submit" variant="contained">
-            Confirm
-          </Button>
-        </CardContent>
-      </Card>
-    </form>
+    <div>
+      <LoginDashboard />
+      <form onSubmit={handleSubmit}>
+        <Card className="login-container">
+          <h4>Reset your Password</h4>
+          <CardContent className="card-content">
+            <TextField
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label="Email"
+              variant="outlined"
+              error={touched.email && errors.email}
+              helperText={touched.email && errors.email ? errors.email : null}
+            />
+            <TextField
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label="Enter New password"
+              variant="outlined"
+              error={touched.password && errors.password}
+              helperText={
+                touched.password && errors.password ? errors.password : null
+              }
+            />
+            <Button color="secondary" type="submit" variant="contained">
+              Confirm
+            </Button>
+          </CardContent>
+        </Card>
+      </form>
+    </div>
   );
 };

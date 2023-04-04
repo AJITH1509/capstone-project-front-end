@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { API } from "../global";
+import { LoginDashboard } from "./loginDashboard";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
@@ -68,77 +69,83 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="main-container">
-      <div className="animation-words">
-        <h1>
-          <span>Relax! We choose for you.</span>
-        </h1>
+    <div>
+      <LoginDashboard />
+      <div className="main-container">
+        <div className="animation-words">
+          <h1 style={{ textAlign: "center" }}>Relax! We choose for you.</h1>
+        </div>
+        <Stack spacing={2} sx={{ width: "100%" }}>
+          <form onSubmit={handleSubmit}>
+            <Card className="login-container">
+              <h4>Welcome !!</h4>
+              <CardContent className="card-content">
+                <TextField
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  label="Email"
+                  variant="outlined"
+                  error={touched.email && errors.email}
+                  helperText={
+                    touched.email && errors.email ? errors.email : null
+                  }
+                />
+                <TextField
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  label="password"
+                  type={show ? "text" : "password"}
+                  variant="outlined"
+                  error={touched.password && errors.password}
+                  helperText={
+                    touched.password && errors.password ? errors.password : null
+                  }
+                />
+                <span className="showpassword">
+                  <Checkbox
+                    onClick={togglePassword}
+                    aria-label="Checkbox demo"
+                  />
+                  <span>Show password</span>
+                </span>
+
+                <Button type="submit" variant="contained">
+                  Login
+                </Button>
+                <small
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/login/forgetpassword")}
+                >
+                  forget password?
+                  <hr style={{ opacity: 0.5, width: "70%" }} />
+                </small>
+
+                <Button
+                  style={{ width: "50%", margin: "0px auto" }}
+                  onClick={() => navigate("/signup")}
+                  variant="contained"
+                  color="success"
+                >
+                  Create Account
+                </Button>
+              </CardContent>
+            </Card>
+          </form>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert
+              onClose={handleClose}
+              severity={severity ? "error" : "success"}
+              sx={{ width: "100%" }}
+            >
+              {severity ? "Invalid credentials" : "login successfully"}
+            </Alert>
+          </Snackbar>
+        </Stack>
       </div>
-      <Stack spacing={2} sx={{ width: "100%" }}>
-        <form onSubmit={handleSubmit}>
-          <Card className="login-container">
-            <h4>Welcome !!</h4>
-            <CardContent className="card-content">
-              <TextField
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                label="Email"
-                variant="outlined"
-                error={touched.email && errors.email}
-                helperText={touched.email && errors.email ? errors.email : null}
-              />
-              <TextField
-                name="password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                label="password"
-                type={show ? "text" : "password"}
-                variant="outlined"
-                error={touched.password && errors.password}
-                helperText={
-                  touched.password && errors.password ? errors.password : null
-                }
-              />
-              <span className="showpassword">
-                <Checkbox onClick={togglePassword} aria-label="Checkbox demo" />
-                <span>Show password</span>
-              </span>
-
-              <Button type="submit" variant="contained">
-                Login
-              </Button>
-              <small
-                style={{ cursor: "pointer" }}
-                onClick={() => navigate("/login/forgetpassword")}
-              >
-                forget password?
-                <hr style={{ opacity: 0.5, width: "70%" }} />
-              </small>
-
-              <Button
-                style={{ width: "50%", margin: "0px auto" }}
-                onClick={() => navigate("/signup")}
-                variant="contained"
-                color="success"
-              >
-                Create Account
-              </Button>
-            </CardContent>
-          </Card>
-        </form>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert
-            onClose={handleClose}
-            severity={severity ? "error" : "success"}
-            sx={{ width: "100%" }}
-          >
-            {severity ? "Invalid credentials" : "login successfully"}
-          </Alert>
-        </Snackbar>
-      </Stack>
     </div>
   );
 };

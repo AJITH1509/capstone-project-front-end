@@ -12,6 +12,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { LoginDashboard } from "./loginDashboard";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -70,72 +71,75 @@ export const SignUpPage = () => {
   };
 
   return (
-    <Stack spacing={2} sx={{ width: "100%" }}>
-      <form onSubmit={handleSubmit}>
-        <Card className="login-container">
-          <h2>Sign up</h2>
-          <CardContent className="card-content">
-            <TextField
-              name="name"
-              value={values.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              label="Name"
-              variant="outlined"
-              error={touched.name && errors.name}
-              helperText={touched.name && errors.name ? errors.name : null}
-            />
-            <TextField
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              label="email"
-              variant="outlined"
-              error={touched.email && errors.email}
-              helperText={touched.email && errors.email ? errors.email : null}
-            />
-            <TextField
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              label="password"
-              variant="outlined"
-              type={show ? "text" : "password"}
-              error={touched.password && errors.password}
-              helperText={
-                touched.password && errors.password ? errors.password : null
-              }
-            />
-            <span className="showpassword">
-              <Checkbox onClick={togglePassword} aria-label="Checkbox demo" />
-              <span>Show password</span>
-            </span>
-            <Button type="submit" color="success" variant="contained">
-              Register
-            </Button>
-            <small style={{ opacity: 0.5 }}>already registered ?</small>
-            <h5 className="signin" onClick={() => reDirect()}>
-              sign in
-            </h5>
-          </CardContent>
-        </Card>
-      </form>
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        key="top"
-      >
-        <Alert
+    <div>
+      <LoginDashboard />
+      <Stack spacing={2} sx={{ width: "100%" }}>
+        <form onSubmit={handleSubmit}>
+          <Card className="login-container">
+            <h2>Sign up</h2>
+            <CardContent className="card-content">
+              <TextField
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                label="Name"
+                variant="outlined"
+                error={touched.name && errors.name}
+                helperText={touched.name && errors.name ? errors.name : null}
+              />
+              <TextField
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                label="email"
+                variant="outlined"
+                error={touched.email && errors.email}
+                helperText={touched.email && errors.email ? errors.email : null}
+              />
+              <TextField
+                name="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                label="password"
+                variant="outlined"
+                type={show ? "text" : "password"}
+                error={touched.password && errors.password}
+                helperText={
+                  touched.password && errors.password ? errors.password : null
+                }
+              />
+              <span className="showpassword">
+                <Checkbox onClick={togglePassword} aria-label="Checkbox demo" />
+                <span>Show password</span>
+              </span>
+              <Button type="submit" color="success" variant="contained">
+                Register
+              </Button>
+              <small style={{ opacity: 0.5 }}>already registered ?</small>
+              <h5 className="signin" onClick={() => reDirect()}>
+                sign in
+              </h5>
+            </CardContent>
+          </Card>
+        </form>
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
           onClose={handleClose}
-          severity={severity ? "error" : "success"}
-          sx={{ width: "100%" }}
+          key="top"
         >
-          {severity ? "Email already registered" : "Signup successfully"}
-        </Alert>
-      </Snackbar>
-    </Stack>
+          <Alert
+            onClose={handleClose}
+            severity={severity ? "error" : "success"}
+            sx={{ width: "100%" }}
+          >
+            {severity ? "Email already registered" : "Signup successfully"}
+          </Alert>
+        </Snackbar>
+      </Stack>
+    </div>
   );
 };

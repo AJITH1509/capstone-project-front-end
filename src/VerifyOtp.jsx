@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { API } from "../global.js";
+import { LoginDashboard } from "./loginDashboard.jsx";
 
 export const VerifyOtp = () => {
   const navigate = useNavigate();
@@ -27,23 +28,26 @@ export const VerifyOtp = () => {
     },
   });
   return (
-    <form onSubmit={handleSubmit}>
-      <Card className="login-container">
-        <h4>OTP verification</h4>
-        <p>Enter the OTP, that we sent to your registerd Email</p>
-        <CardContent className="card-content">
-          <TextField
-            name="OTP"
-            value={values.OTP}
-            onChange={handleChange}
-            label="Enter OTP"
-            variant="outlined"
-          />
-          <Button color="success" type="submit" variant="contained">
-            Verify Otp
-          </Button>
-        </CardContent>
-      </Card>
-    </form>
+    <div>
+      <LoginDashboard />
+      <form onSubmit={handleSubmit}>
+        <Card className="login-container">
+          <h4>OTP verification</h4>
+          <p>Enter the OTP, that we sent to your registerd Email</p>
+          <CardContent className="card-content">
+            <TextField
+              name="OTP"
+              value={values.OTP}
+              onChange={handleChange}
+              label="Enter OTP"
+              variant="outlined"
+            />
+            <Button color="success" type="submit" variant="contained">
+              Verify Otp
+            </Button>
+          </CardContent>
+        </Card>
+      </form>
+    </div>
   );
 };

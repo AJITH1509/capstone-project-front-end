@@ -1,40 +1,29 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { API } from "../global.js";
+import Card from "@mui/material/Card";
+import { Dashbaord } from "./dashboard.jsx";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
 export const Profile = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [data, setData] = useState("");
+  const id = localStorage.getItem("id");
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-  console.log(selectedFile);
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    fetch(`${API}/${id}`)
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []);
 
-    const formData = new FormData();
-    formData.append("selectedFile", selectedFile);
-
-    try {
-      const response = await fetch(`${API}/upload-image`, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        console.log("Image uploaded and metadata saved to MongoDB!");
-      } else {
-        console.error("Failed to upload image and save metadata to MongoDB");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
   return (
     <div>
-      <form>
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={handleFormSubmit}>Upload Image</button>
-      </form>
+      <Dashbaord />
+      <Card className="profile-page">
+        <div style={{ borderRadius: "50%" }}>
+          <AccountCircleRoundedIcon sx={{ fontSize: "100px" }} />
+        </div>
+        <h2>{data.name}</h2>
+      </Card>
     </div>
   );
 };

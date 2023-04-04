@@ -13,6 +13,8 @@ import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Checkbox from "@mui/material/Checkbox";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -27,6 +29,14 @@ export const LoginPage = () => {
   const [open, setOpen] = useState(false);
   const [severity, setSeverity] = useState(true);
   const [show, setShow] = useState(false);
+  const [drop, setDrop] = useState(false);
+  const handleCloseDrop = () => {
+    setDrop(false);
+  };
+  const handleToggle = () => {
+    setDrop(!drop);
+  };
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -44,6 +54,7 @@ export const LoginPage = () => {
       },
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
+        handleToggle();
         const data = await fetch(`${API}/login`, {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -52,6 +63,7 @@ export const LoginPage = () => {
 
         if (data.status === 401) {
           setOpen(true);
+          handleCloseDrop();
         } else {
           setOpen(true);
           setSeverity(false);
@@ -113,7 +125,11 @@ export const LoginPage = () => {
                   <span>Show password</span>
                 </span>
 
-                <Button type="submit" variant="contained">
+                <Button
+                  // onClick={handleToggle}
+                  type="submit"
+                  variant="contained"
+                >
                   Login
                 </Button>
                 <small
@@ -146,6 +162,13 @@ export const LoginPage = () => {
           </Snackbar>
         </Stack>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={drop}
+        onClick={handleCloseDrop}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

@@ -13,12 +13,6 @@ body{
   text-align: center;
 
 }
-form{
-  background-image: url("backgroundImages/pngegg.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
   .card-content{
     display: flex;
     flex-direction: column;
@@ -48,11 +42,7 @@ form{
   .animation-words {
     margin-left: 100px;
     font-size: 40px;
-    color:rgb(0, 0, 0);
-    background-image: url("backgroundImages/pngegg.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    color:white
   }
   
   .animation-words h1 {
@@ -70,6 +60,22 @@ form{
   }
 
   /* /////////// */
+
+  .daily-color-main-div{
+    background-image: url("https://www.itl.cat/pngfile/big/193-1931048_fashion-wear-background-fashion-powerpoint-backgrounds.jpg");
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .login-page-main-container{
+    background-image: url("https://img.freepik.com/premium-photo/blurred-store-cloth-boutique-shop-blur-background_528008-48.jpg");
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
 
 #website-name{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -163,9 +169,10 @@ h4{
 
 .today-suggestion-heading{
   text-align: center;
+  font-weight:bold;
   margin:2px 2px 10px 2px ;
   font-family: 'Kalam', cursive;
-  color: rgb(255, 192, 228);
+  color: #27E1C1;
 }
 .color-list{
   margin: 10px 10px 10px 10px;

@@ -44,7 +44,6 @@ export const Color = () => {
   useEffect(() => {
     getColor();
   }, []);
-  console.log(data);
   const handleChange = (event) => {
     setMood(event.target.value);
   };
@@ -53,7 +52,7 @@ export const Color = () => {
   };
 
   return (
-    <div>
+    <div className="daily-color-main-div">
       <Dashbaord />
       <div className="color-div">
         <Card id="radio-btn">

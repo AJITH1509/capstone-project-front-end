@@ -71,7 +71,7 @@ export const SignUpPage = () => {
   };
 
   return (
-    <div>
+    <div className="login-page-main-container">
       <LoginDashboard />
       <Stack spacing={2} sx={{ width: "100%" }}>
         <form onSubmit={handleSubmit}>

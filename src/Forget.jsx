@@ -35,7 +35,7 @@ export const ForgetPass = () => {
       },
     });
   return (
-    <div>
+    <div className="login-page-main-container">
       <LoginDashboard />
       <form onSubmit={handleSubmit}>
         <Card className="login-container">

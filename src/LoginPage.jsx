@@ -69,7 +69,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="login-page-main-container">
       <LoginDashboard />
       <div className="main-container">
         <div className="animation-words">

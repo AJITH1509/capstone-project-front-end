@@ -16,7 +16,7 @@ import { quotes } from "../quotes.js";
 export const Color = () => {
   const [mood, setMood] = useState("");
   const [tone, setTone] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState(null);
   const [like, setLike] = useState(false);
   const [quote, setquote] = useState("");
 

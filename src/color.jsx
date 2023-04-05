@@ -107,9 +107,10 @@ export const Color = () => {
         </Card>
         <div style={{ marginBottom: "10px" }}>
           <Button
-            sx={{ borderRadius: "10px" }}
+            sx={{ borderRadius: "2px" }}
             onClick={getColor}
-            variant="contained"
+            variant="outlined"
+            color="secondary"
           >
             Get dress color
           </Button>

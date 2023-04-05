@@ -8,6 +8,13 @@ import { Loading } from "./loading.jsx";
 export const ColorPalette = () => {
   const [color, setColor] = useState(null);
 
+  const addLike = async (id) => {
+    await fetch(`${API}/${id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+    });
+  };
+
   useEffect(() => {
     fetch(`${API}/colors`, {
       headers: {
@@ -23,7 +30,7 @@ export const ColorPalette = () => {
       {color ? (
         <div className="color-list">
           {color.map((colors) => (
-            <Colors key={colors._id} colors={colors} />
+            <Colors key={colors._id} colors={colors} addLike={addLike} />
           ))}
         </div>
       ) : (
@@ -33,8 +40,9 @@ export const ColorPalette = () => {
   );
 };
 
-const Colors = ({ colors }) => {
+const Colors = ({ colors, addLike }) => {
   const [like, setLike] = useState(false);
+
   return (
     <Card id="main-color-palette">
       <div
@@ -43,11 +51,17 @@ const Colors = ({ colors }) => {
       ></div>
       <div className="color-title-div">
         <p style={{ textAlign: "center" }}>{colors.name}</p>
-        <FavoriteIcon
-          style={{ cursor: "pointer" }}
-          onClick={(e) => setLike(!like)}
-          color={like ? "error" : "grey"}
-        />
+        <span>
+          <FavoriteIcon
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              addLike(colors._id);
+              setLike(!like);
+            }}
+            color={like ? "error" : "grey"}
+          />
+          ({colors.count})
+        </span>
       </div>
     </Card>
   );

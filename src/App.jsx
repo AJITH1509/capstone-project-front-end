@@ -14,6 +14,7 @@ import { ForgetPass } from "./Forget";
 import { VerifyOtp } from "./VerifyOtp";
 import { NewPassword } from "./newPassword";
 import { EmailVerification } from "./EmailVerification";
+import { NotFound } from "./NotFound.jsx";
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
         <Route path="/setpassword" element={<NewPassword />} />
         <Route path="/More-colors" element={<ColorPalette />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
 }
-
 export default App;

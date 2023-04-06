@@ -3,7 +3,6 @@ body{
     margin: 0px;
     background-color:#F9F9F9 ;
 }
-
 /* login css */
 #login-container{
   margin: 100px auto;
@@ -22,8 +21,6 @@ body{
   font-size: 20px;
   margin: 5px auto;
 }
-
-
   .card-content{
     display: flex;
     flex-direction: column;
@@ -87,7 +84,6 @@ body{
     background-position: center;
     background-size: cover;
   }
-  
 
 #website-name{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -252,6 +248,30 @@ Button:hover{
   border-radius: 15px;
   opacity: 0.8;
 }
+/* ///////////// page not found //////////////// */
+
+.page-not-found{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+}
+.page-not-found img{
+  max-width: 500px;
+  max-height: 500px;
+}
+.page-not-found p{
+  margin: 10px auto;
+  font-size: 40px;
+}
+.page-not-found button{
+  margin: 2px auto;
+}
+
+
+/* /////////////// media query ///////////// */
 
   @media screen and (max-width: 500px) {
     #radio-btn{
@@ -266,7 +286,6 @@ Button:hover{
     #radio-btn:hover{
       transform: translateZ(10px);
       width: 325px;
-      background-color: rgba(203, 183, 93, 0.737);
     }
     .daily-color{
       margin: 10px auto;
@@ -321,16 +340,24 @@ Button:hover{
       max-width: 400px;
       text-align: center;
     transform: scale(90%);
-    
-  }
-}
-  /* @media screen and (max-width: 900px)and(min-width:500px) {
-    .animation-words {
-      margin-left: 10px;
-      color:rgb(0, 0, 0);
-      background-image: url("background images/pngegg.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
     }
-  }  */
+    .page-not-found{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: white;
+    }
+    .page-not-found img{
+      max-width: 250px;
+      max-height: 250px;
+    }
+    .page-not-found p{
+      margin: 10px auto;
+      font-size: 20px;
+    }
+    .page-not-found button{
+      margin: 2px auto;
+    }
+}

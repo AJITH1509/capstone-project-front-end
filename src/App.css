@@ -53,7 +53,8 @@ body{
   .animation-words {
     margin-left: 100px;
     font-size: 40px;
-    color:white
+    color:#03001C;
+    font-family: 'Graduate', cursive;
   }
   
   .animation-words h1 {
@@ -306,19 +307,21 @@ Button:hover{
     .animation-words {
       margin: 10px auto;
       font-size: 20px;
-      color:rgb(0, 0, 0);
+      color:#03001C;
       background-image: url("background images/pngegg.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+      font-family: 'Graduate', cursive;
     }
-    .login-container{
+    #login-container{
       margin: 10px auto;
       display: flex;
       flex-direction: column;
       max-width: 400px;
       text-align: center;
-    transform: scale(80%);
+    transform: scale(90%);
+    
   }
 }
   /* @media screen and (max-width: 900px)and(min-width:500px) {

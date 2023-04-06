@@ -12,7 +12,6 @@ body{
   text-align: center;
   transition: all 0.8s;
   background-color: rgba(255, 255, 255, 0.3)
-  
 }
 #login-container:hover{
   background-color: rgba(255, 255, 255, 0.7);
@@ -274,7 +273,7 @@ Button:hover{
 
 /* /////////////// media query ///////////// */
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 700px) {
     #radio-btn{
       width: 300px;
     }

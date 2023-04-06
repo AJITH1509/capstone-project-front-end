@@ -38,7 +38,7 @@ export const ForgetPass = () => {
     <div className="login-page-main-container">
       <LoginDashboard />
       <form onSubmit={handleSubmit}>
-        <Card className="login-container">
+        <Card id="login-container">
           <h4>Trouble with logging in ?</h4>
           <p>Enter your email address and we will send OTP</p>
           <CardContent className="card-content">

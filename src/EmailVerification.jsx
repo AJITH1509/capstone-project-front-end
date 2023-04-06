@@ -28,7 +28,7 @@ export const EmailVerification = () => {
   });
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="login-container">
+      <Card id="login-container">
         <h4>Mail verification</h4>
         <p>Enter the OTP, that we sent to your registerd Email</p>
         <CardContent className="card-content">

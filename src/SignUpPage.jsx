@@ -75,7 +75,7 @@ export const SignUpPage = () => {
       <LoginDashboard />
       <Stack spacing={2} sx={{ width: "100%" }}>
         <form onSubmit={handleSubmit}>
-          <Card className="login-container">
+          <Card id="login-container">
             <h2>Sign up</h2>
             <CardContent className="card-content">
               <TextField

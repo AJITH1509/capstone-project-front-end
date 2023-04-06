@@ -31,7 +31,7 @@ export const VerifyOtp = () => {
     <div className="login-page-main-container">
       <LoginDashboard />
       <form onSubmit={handleSubmit}>
-        <Card className="login-container">
+        <Card id="login-container">
           <h4>OTP verification</h4>
           <p>Enter the OTP, that we sent to your registerd Email</p>
           <CardContent className="card-content">

@@ -40,7 +40,7 @@ export const NewPassword = () => {
     <div className="login-page-main-container">
       <LoginDashboard />
       <form onSubmit={handleSubmit}>
-        <Card className="login-container">
+        <Card id="login-container">
           <h4>Reset your Password</h4>
           <CardContent className="card-content">
             <TextField

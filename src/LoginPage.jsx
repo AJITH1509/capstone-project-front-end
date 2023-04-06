@@ -89,7 +89,7 @@ export const LoginPage = () => {
         </div>
         <Stack spacing={2} sx={{ width: "100%" }}>
           <form onSubmit={handleSubmit}>
-            <Card className="login-container">
+            <Card id="login-container">
               <h4>Welcome !!</h4>
               <CardContent className="card-content">
                 <TextField

@@ -1,0 +1,6 @@
+[[redirects]]
+from = "*"
+to = "/error-page"
+status = 404
+force = true
+

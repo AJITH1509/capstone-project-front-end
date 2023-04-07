@@ -29,6 +29,7 @@ function App() {
         <Route path="/setpassword" element={<NewPassword />} />
         <Route path="/More-colors" element={<ColorPalette />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/error-page" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -11,7 +11,7 @@ export const NotFound = () => {
       <Button
         variant="contained"
         color="success"
-        onClick={() => navigate("/daily-color")}
+        onClick={() => navigate("/dailycolor")}
       >
         Back to Home
       </Button>

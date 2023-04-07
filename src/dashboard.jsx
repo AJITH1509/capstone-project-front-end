@@ -58,7 +58,7 @@ export function Dashbaord() {
                 variant="h4"
                 component="div"
                 sx={{ flexGrow: 1, cursor: "pointer" }}
-                onClick={() => navigate("/daily-color")}
+                onClick={() => navigate("/dailycolor")}
               >
                 Daily<span>Color</span>
                 <small>.in</small>
@@ -69,7 +69,7 @@ export function Dashbaord() {
                 startIcon={mode ? <DarkModeIcon /> : <LightModeIcon />}
               ></Button>
               <h3
-                onClick={() => navigate("/more-colors")}
+                onClick={() => navigate("/morecolors")}
                 className="nav-more-colors"
               >
                 More colors

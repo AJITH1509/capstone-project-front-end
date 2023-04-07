@@ -71,7 +71,7 @@ export const LoginPage = () => {
           localStorage.setItem("token", result.token);
           localStorage.setItem("id", result.id);
 
-          navigate("/daily-color");
+          navigate("/dailycolor");
         }
       },
     });

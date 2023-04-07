@@ -20,14 +20,14 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/daily-color" element={<Color />} />
+        <Route exact path="/dailycolor" element={<Color />} />
         <Route exact path="/" element={<LoginPage />} />
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="/login/forgetpassword" element={<ForgetPass />} />
         <Route exact path="/verifyotp" element={<VerifyOtp />} />
         <Route exact path="/mailverification" element={<EmailVerification />} />
         <Route exact path="/setpassword" element={<NewPassword />} />
-        <Route exact path="/More-colors" element={<ColorPalette />} />
+        <Route exact path="/Morecolors" element={<ColorPalette />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

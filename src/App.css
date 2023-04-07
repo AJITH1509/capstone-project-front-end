@@ -151,8 +151,9 @@ h4{
   }
 
   .nav-more-colors{
-    padding-right: 10px;
+    margin-right: 20px;
       cursor: pointer;
+      border-bottom: none;
   }
   .nav-more-colors:hover{
     color: pink;
@@ -270,18 +271,20 @@ Button:hover{
   margin: 2px auto;
 }
 
+#fade-button{
+  display: none;
+}
+.nav-items{
+  display: flex;
+  justify-content: space-around;
+}
+
 
 /* /////////////// media query ///////////// */
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 768px) {
     #radio-btn{
       width: 300px;
-    }
-    .nav-more-colors{
-      text-align: center;
-      transform: scale(70%);
-      padding-right: 0px;
-        cursor: pointer;
     }
     #radio-btn:hover{
       transform: translateZ(10px);
@@ -313,10 +316,6 @@ Button:hover{
     }
     .today-suggestion-heading{
      transform: scale(70%);
-    }
-    #website-name{
-      /* transform: scaleX(70%); */
-      font-size: larger;
     }
     .main-container{
       display: flex;
@@ -360,4 +359,14 @@ Button:hover{
     .page-not-found button{
       margin: 2px auto;
     }
+  
+}
+
+@media screen and (max-width: 550px) {
+  #fade-button{
+    display: block;
+  }
+      .nav-items{
+        display: none;
+      }
 }

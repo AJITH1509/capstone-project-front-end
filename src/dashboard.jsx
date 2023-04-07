@@ -1,6 +1,5 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -15,8 +14,10 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
+import InfoIcon from "@mui/icons-material/Info";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
+import Tooltip from "@mui/material/Tooltip";
 import { useState } from "react";
 
 export function Dashbaord() {
@@ -41,92 +42,99 @@ export function Dashbaord() {
     navigate("/");
   }
   return (
-    <ThemeProvider theme={darkTheme}>
-      {/* <Paper
-        sx={{
-          borderRadius: "0px",
-          minHeight: "100vh",
-        }}
-        elevation={5}
-      > */}
-      <div>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar color="secondary" position="static">
-            <Toolbar>
-              <Typography
-                id="website-name"
-                variant="h4"
-                component="div"
-                sx={{ flexGrow: 1, cursor: "pointer" }}
-                onClick={() => navigate("/dailycolor")}
+    <div>
+      <AppBar s color="secondary" position="static">
+        <Toolbar>
+          <Typography
+            id="website-name"
+            variant="h4"
+            component="div"
+            sx={{ flexGrow: 1, cursor: "pointer" }}
+            onClick={() => navigate("/dailycolor")}
+          >
+            Daily<span>Color</span>
+            <small>.in</small>
+          </Typography>
+          <div className="nav-items">
+            <h3
+              onClick={() => navigate("/morecolors")}
+              className="nav-more-colors"
+            >
+              More colors
+            </h3>
+            <h3 onClick={() => navigate("/about")} className="nav-more-colors">
+              About Us
+            </h3>
+            <IconButton onClick={() => navigate("/profile")}>
+              <AccountCircleIcon sx={{ fontSize: "40px" }} />
+            </IconButton>
+            <Tooltip title="Log out">
+              <IconButton
+                sx={{ marginRight: "20px", color: "white" }}
+                onClick={logOut}
               >
-                Daily<span>Color</span>
-                <small>.in</small>
-              </Typography>
-              <Button
-                onClick={() => setMode(!mode)}
-                color="inherit"
-                startIcon={mode ? <DarkModeIcon /> : <LightModeIcon />}
-              ></Button>
-              <h3
-                onClick={() => navigate("/morecolors")}
-                className="nav-more-colors"
-              >
-                More colors
-              </h3>
-              <Button
-                id="fade-button"
-                aria-controls={open ? "fade-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-              >
-                <IconButton
-                  size="large"
-                  edge="start"
-                  aria-label="menu"
-                  sx={{ mr: 2, color: "White", justifyContent: "center" }}
-                >
-                  <MenuIcon />
+                <PowerSettingsNewIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+          <Button
+            id="fade-button"
+            aria-controls={open ? "fade-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleClick}
+          >
+            <IconButton aria-label="menu" sx={{ color: "White" }}>
+              <MenuIcon />
+            </IconButton>
+          </Button>
+          <Menu
+            id="fade-menu"
+            MenuListProps={{
+              "aria-labelledby": "fade-button",
+            }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+            sx={{ margin: "0px" }}
+          >
+            <MenuItem onClick={() => navigate("/profile")}>
+              <IconButton>
+                <AccountCircleIcon color="secondary" />
+              </IconButton>
+              Profile
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/morecolors")}>
+              <IconButton>
+                <ColorLensIcon color="white" />
+              </IconButton>
+              More colors
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/about")}>
+              <IconButton>
+                <InfoIcon sx={{ color: "green" }} />
+              </IconButton>
+              About Us
+            </MenuItem>
+            {token ? (
+              <MenuItem onClick={logOut}>
+                <IconButton>
+                  <LogoutIcon color="error" />
                 </IconButton>
-              </Button>
-              <Menu
-                id="fade-menu"
-                MenuListProps={{
-                  "aria-labelledby": "fade-button",
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={Fade}
-              >
-                <MenuItem onClick={() => navigate("/profile")}>
-                  <IconButton>
-                    <AccountCircleIcon />
-                  </IconButton>
-                  Profile
-                </MenuItem>
-                {token ? (
-                  <MenuItem onClick={logOut}>
-                    <IconButton>
-                      <LogoutIcon />
-                    </IconButton>
-                    Logout
-                  </MenuItem>
-                ) : (
-                  <MenuItem onClick={() => navigate("/")}>
-                    <IconButton>
-                      <LoginIcon />
-                    </IconButton>
-                    Login
-                  </MenuItem>
-                )}
-              </Menu>
-            </Toolbar>
-          </AppBar>
-        </Box>
-      </div>
-      {/* </Paper> */}
-    </ThemeProvider>
+                Logout
+              </MenuItem>
+            ) : (
+              <MenuItem onClick={() => navigate("/")}>
+                <IconButton>
+                  <LoginIcon color="success" />
+                </IconButton>
+                Login
+              </MenuItem>
+            )}
+          </Menu>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }

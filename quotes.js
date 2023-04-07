@@ -94,4 +94,54 @@ export const quotes = [
     text: "One is never over-dressed or underdressed with a Little Black Dress.",
     author: "unknown",
   },
+  {
+    id: 20,
+    text: "Give a girl the right shoes, and she can conquer the world.",
+    author: "Marilyn Monroe",
+  },
+  {
+    id: 21,
+    text: "Clothes aren't going to change the world, the women who wear them will.",
+    author: "Anne Klein",
+  },
+  {
+    id: 22,
+    text: "The most beautiful thing a woman can wear is confidence.",
+    author: "Blake Lively",
+  },
+  {
+    id: 23,
+    text: "Fashion is about dressing according to what's fashionable. Style is more about being yourself.",
+    author: "Oscar de la Renta",
+  },
+  {
+    id: 24,
+    text: "Dress shabbily and they remember the dress; dress impeccably and they remember the woman.",
+    author: "Coco Chanel",
+  },
+  {
+    id: 25,
+    text: "A woman's dress should be like a barbed-wire fence: serving its purpose without obstructing the view.",
+    author: "Sophia Loren",
+  },
+  {
+    id: 26,
+    text: "When you don't dress like everyone else, you don't have to think like everyone else.",
+    author: "Iris Apfel",
+  },
+  {
+    id: 27,
+    text: "A dress should be tight enough to show you're a woman, but loose enough to prove you're a lady.",
+    author: "Edith Head",
+  },
+  {
+    id: 28,
+    text: "Clothes should be an extension of who you are, not a costume to put on.",
+    author: "Rachel Zoe",
+  },
+  {
+    id: 29,
+    text: "Style is knowing who you are, what you want to say, and not giving a damn.",
+    author: "Orson Welles",
+  },
 ];

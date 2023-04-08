@@ -13,6 +13,15 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { API } from "../global";
 import { quotes } from "../quotes.js";
 
+export function checkFunction(response) {
+  if (response.status === 401) {
+    localStorage.clear();
+    window.location.href = "/";
+  } else {
+    return response.json();
+  }
+}
+
 export const Color = () => {
   const [mood, setMood] = useState("");
   const [tone, setTone] = useState("");
@@ -26,7 +35,7 @@ export const Color = () => {
         "x-auth-token": localStorage.getItem("token"),
       },
     })
-      .then((response) => response.json())
+      .then((response) => checkFunction(response))
       .then((data) => {
         const max = data.colors.length;
         const num = Math.floor(Math.random() * max);

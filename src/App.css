@@ -97,11 +97,33 @@ body{
   #website-name small{
     color: yellow;
   }
-
+ .login-dashboard-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #03C988;
+ }
+ .login-dashboard-nav-items{
+  margin-right: 30px;
+  display: flex;
+  flex-direction: row;
+ }
+ .login-dashboard-nav-items h3{
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+ }
+ .login-dashboard-nav-items h3:hover{
+   transform: translateY(-3px);
+   color: white;
+ }
   #login-dashboard-websitename{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Mr De Haviland', cursive;
+    font-size:40px;
+    font-weight:bold;
     text-align: center;
-    background-color: #03C988;
+
     padding: 10px 10px 10px 10px;
   }
   #login-dashboard-websitename span{
@@ -381,6 +403,24 @@ Button:hover{
       margin: 2px auto;
     }
   
+}
+
+.about-page-container{
+  text-align: center;
+  background-color: #03001C;
+  min-height: 100vh;
+}
+.about-page-container p{
+  margin: 0px;
+  padding-top:20px ;
+  color: #03C988;
+}
+.about-page-container h2{
+  margin: 30px 20px 0px 20px;
+  color: white;
+}
+.about-page-container span{
+  color: yellow;
 }
 
 @media screen and (max-width: 550px) {

@@ -6,6 +6,7 @@ import { Dashbaord } from "./dashboard.jsx";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import { Loading } from "./loading.jsx";
 import { Button } from "@mui/material";
+import { checkFunction } from "./color.jsx";
 
 export const Profile = () => {
   const [data, setData] = useState("");
@@ -23,8 +24,12 @@ export const Profile = () => {
   };
 
   useEffect(() => {
-    fetch(`${API}/${id}`)
-      .then((response) => response.json())
+    fetch(`${API}/${id}`, {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    })
+      .then((response) => checkFunction(response))
       .then((data) => setData(data));
   }, []);
 

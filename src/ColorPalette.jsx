@@ -4,6 +4,7 @@ import { Dashbaord } from "./dashboard.jsx";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { API } from "../global.js";
 import { Loading } from "./loading.jsx";
+import { checkFunction } from "./color.jsx";
 
 export const ColorPalette = () => {
   const [color, setColor] = useState(null);
@@ -25,13 +26,17 @@ export const ColorPalette = () => {
         "x-auth-token": localStorage.getItem("token"),
       },
     })
-      .then((response) => response.json())
+      .then((response) => checkFunction(response))
       .then((data) => setColor(data));
   };
   const searchHandle = async (event) => {
     let key = event.target.value;
     if (key) {
-      let result = await fetch(`${API}/search/color/${key}`);
+      let result = await fetch(`${API}/search/color/${key}`, {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      });
       result = await result.json();
       setColor(result);
     } else {

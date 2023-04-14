@@ -2,13 +2,17 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { API } from "../global.js";
 import Card from "@mui/material/Card";
-import { Dashbaord } from "./dashboard.jsx";
+import { Dashboard } from "./dashboard.jsx";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import { useNavigate } from "react-router-dom";
 import { Loading } from "./loading.jsx";
 import { Button } from "@mui/material";
 import { checkFunction } from "./color.jsx";
+import EditIcon from "@mui/icons-material/Edit";
+import IconButton from "@mui/material/IconButton";
 
 export const Profile = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState("");
   const id = localStorage.getItem("id");
 
@@ -35,7 +39,7 @@ export const Profile = () => {
 
   return (
     <div className="profile-main-container">
-      <Dashbaord />
+      <Dashboard />
       {data ? (
         <Card id="profile-page-card">
           <div>
@@ -54,7 +58,16 @@ export const Profile = () => {
             upload Picture
           </label>
           <hr style={{ opacity: 0.5, width: "70%" }} />
-          <h2>{data.name}</h2>
+          <div className="profile-name-container">
+            <h2>{data.name}</h2>
+            <IconButton
+              onClick={() => navigate(`/editprofile/${data._id}`)}
+              color="secondary"
+              aria-label="edit"
+            >
+              <EditIcon />
+            </IconButton>
+          </div>
         </Card>
       ) : (
         <Loading />

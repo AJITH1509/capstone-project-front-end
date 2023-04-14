@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
-import { Dashbaord } from "./dashboard.jsx";
+import { Dashboard } from "./dashboard.jsx";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { API } from "../global.js";
 import { Loading } from "./loading.jsx";
@@ -45,7 +45,7 @@ export const ColorPalette = () => {
   };
   return (
     <div>
-      <Dashbaord />
+      <Dashboard />
       <div className="input-box-container">
         <input
           className="input-box"

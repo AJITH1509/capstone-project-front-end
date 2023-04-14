@@ -20,7 +20,7 @@ import ColorLensIcon from "@mui/icons-material/ColorLens";
 import Tooltip from "@mui/material/Tooltip";
 import { useState } from "react";
 
-export function Dashbaord() {
+export function Dashboard() {
   const navigate = useNavigate();
   const [mode, setMode] = useState(true);
   const darkTheme = createTheme({

@@ -11,6 +11,7 @@ import { NewPassword } from "./newPassword";
 import { EmailVerification } from "./EmailVerification";
 import { NotFound } from "./NotFound.jsx";
 import { About } from "./About.jsx";
+import { EditProfile } from "./EditProfile.jsx";
 
 function App() {
   return (
@@ -26,10 +27,10 @@ function App() {
         <Route exact path="/Morecolors" element={<ColorPalette />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/about" element={<About />} />
+        <Route exact path="/editprofile/:id" element={<EditProfile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
 }
-
 export default App;

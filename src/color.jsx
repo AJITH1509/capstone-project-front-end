@@ -8,7 +8,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Dashbaord } from "./dashboard.jsx";
+import { Dashboard } from "./dashboard.jsx";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { API } from "../global";
 import { quotes } from "../quotes.js";
@@ -62,7 +62,7 @@ export const Color = () => {
 
   return (
     <div className="daily-color-main-div">
-      <Dashbaord />
+      <Dashboard />
       <div className="color-div">
         <Card id="radio-btn">
           <FormControl>

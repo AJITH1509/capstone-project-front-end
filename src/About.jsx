@@ -1,10 +1,10 @@
 import React from "react";
-import { Dashbaord } from "./dashboard";
+import { Dashboard } from "./dashboard";
 
 export const About = () => {
   return (
     <div>
-      <Dashbaord />
+      <Dashboard />
       <div className="about-page-container">
         <p>About Us</p>
         <h2>
@@ -21,11 +21,15 @@ export const About = () => {
         </h3>
         <h3 style={{ color: "white" }}>
           LinkedIn :
-          <a href="https://www.linkedin.com/in/ajithkumar-m-2603b5175/">
-            {" "}
-            <label style={{ textDecoration: "none", cursor: "pointer" }}>
-              Ajithkumar M
-            </label>
+          <a
+            style={{
+              textDecoration: "none",
+              cursor: "pointer",
+              marginLeft: "5px",
+            }}
+            href="https://www.linkedin.com/in/ajithkumar-m-2603b5175/"
+          >
+            https://www.linkedin.com/in/ajithkumar-m-2603b5175/
           </a>
         </h3>
       </div>

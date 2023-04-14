@@ -264,6 +264,7 @@ h4{
 #profile-page-card h2{
  font-family: 'Allura', cursive;
  font-size:30px;
+ margin-right: 20px;
 }
 
 Button{
@@ -322,6 +323,23 @@ Button:hover{
   width:450px
 }
 
+#edit-form-container{
+  margin: 40px auto;
+  padding:16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  height: 200px;
+  gap: 20px;
+}
+#edit-form-container h3{
+  margin: 5px auto;
+    text-align: center;
+}
+.profile-name-container{
+  display: flex;
+}
 
 /* /////////////// media query ///////////// */
 

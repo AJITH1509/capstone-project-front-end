@@ -1,7 +1,12 @@
 import React from "react";
 import { Dashboard } from "./dashboard";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 export const About = () => {
+  const handleOpenWindow = () => {
+    window.open("https://www.linkedin.com/in/ajithkumar-m-2603b5175");
+  };
   return (
     <div>
       <Dashboard />
@@ -16,21 +21,11 @@ export const About = () => {
           fashion choices easier and more confident.
         </h2>
         <p>contact Us</p>
-        <h3 style={{ color: "white" }}>
-          Email : <label>ajithmuthu799@gmail.com</label>
+        <h3 className="about-gmail">
+          <EmailIcon /> : <label>ajithmuthu799@gmail.com</label>
         </h3>
-        <h3 style={{ color: "white" }}>
-          LinkedIn :
-          <a
-            style={{
-              textDecoration: "none",
-              cursor: "pointer",
-              marginLeft: "5px",
-            }}
-            href="https://www.linkedin.com/in/ajithkumar-m-2603b5175/"
-          >
-            https://www.linkedin.com/in/ajithkumar-m-2603b5175/
-          </a>
+        <h3 className="about-linkedin" onClick={handleOpenWindow}>
+          <LinkedInIcon />
         </h3>
       </div>
     </div>

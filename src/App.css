@@ -3,6 +3,27 @@ body{
     margin: 0px;
     background-color:#F9F9F9 ;
 }
+/* Set the style for the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+/* Set the style for the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color:rgba(142, 20, 142, 0.333);
+  border-radius: 10px;
+}
+
+/* Set the style for the scrollbar corner */
+::-webkit-scrollbar-corner {
+  background-color: #e032cf;
+}
+
+/* Set the style for the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
 /* login css */
 #login-container{
   margin: 100px auto;
@@ -339,6 +360,16 @@ Button:hover{
 }
 .profile-name-container{
   display: flex;
+}
+.about-gmail{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-linkedin{
+  color: white;
+ 
 }
 
 /* /////////////// media query ///////////// */

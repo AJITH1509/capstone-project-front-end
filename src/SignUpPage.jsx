@@ -13,6 +13,8 @@ import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { LoginDashboard } from "./loginDashboard";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -28,7 +30,17 @@ export const SignUpPage = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [drop, setDrop] = useState(false);
   const [severity, setSeverity] = useState(true);
+
+  const handleToggle = () => {
+    setDrop(!drop);
+  };
+
+  const handleCloseDrop = () => {
+    setDrop(false);
+  };
+
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
@@ -38,6 +50,7 @@ export const SignUpPage = () => {
       },
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
+        handleToggle();
         const data = await fetch(`${API}/signup`, {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -50,6 +63,7 @@ export const SignUpPage = () => {
         }
         if (data.status === 401) {
           setOpen(true);
+          handleCloseDrop();
         }
       },
     });
@@ -140,6 +154,13 @@ export const SignUpPage = () => {
           </Alert>
         </Snackbar>
       </Stack>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={drop}
+        onClick={handleCloseDrop}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

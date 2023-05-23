@@ -60,7 +60,7 @@ export const ColorPalette = () => {
               <Colors key={colors._id} colors={colors} addLike={addLike} />
             ))
           ) : (
-            <h1>Color not found. We will add it soon..</h1>
+            <h1>No Matches Found</h1>
           )}
         </div>
       ) : (
